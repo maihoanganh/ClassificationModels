@@ -1,12 +1,14 @@
 function christoffel_func(N,Y,t,d;eps=0.0)
     
+    println("****Method based on Christoffel function****")
+    
     println("number of attributes: ",N)
     println("sample size for traint set: ",t)
     println("degree of polynomial estimation: ",d)
     println("pertubation parameter for moment matrix: ",eps)
     
     
-    println("****Method based on Christoffel function****")
+    
     v=get_basis(N,2*d)
     s2d=size(v,2)
     

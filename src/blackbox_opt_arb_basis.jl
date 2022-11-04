@@ -2,7 +2,7 @@ function model_arb_basis(N,Y,t,R,d,r)
     
     println("number of attributes: ",N)
     println("sample size for traint set: ",t)
-    println("degree of polynomial estimation: ",d)
+    println("degree of polynomial estimation: ",d+1)
     println("radius of the ball centered at the origin containing the samples: ",R)
     println("number of additional monomials: ",length(r))
         
@@ -141,6 +141,8 @@ function solve_opt_arb_basis(N,Y,t,R,d,r;delta=0.5,s=2,rho=0.5,numiter=1000,eps=
     nu0=ones(Float64,l)
       
     #println(A)
+    
+    println()
     
     return solve_convex_program(n,m,l,f0,f,A,b,x0,lamb0,nu0,delta=delta,s=s,rho=rho,numiter=numiter,eps=eps)
     

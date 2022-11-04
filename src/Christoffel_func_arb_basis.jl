@@ -1,13 +1,15 @@
 function christoffel_func_arb_basis(N,Y,t,d,r;eps=0.0)
     
+    println("****Method based on Christoffel function with additional monomials****")
+    
     println("number of attributes: ",N)
     println("sample size for traint set: ",t)
-    println("degree of polynomial estimation: ",d)
+    println("degree of polynomial estimation: ",d+1)
     println("number of additional monomials: ",length(r))
     println("pertubation parameter for moment matrix: ",eps)
     
     
-    println("****Method based on Christoffel function with additional monomials****")
+    
     
     
     v=get_basis(N,d+1)

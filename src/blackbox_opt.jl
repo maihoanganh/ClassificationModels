@@ -184,6 +184,7 @@ function solve_opt(N,Y,t,R,d;delta=0.5,s=2,rho=0.5,numiter=1000,eps=1e-2,tol_eig
     nu0=ones(Float64,l)
       
     #println(A)
+    println()
     
     return solve_convex_program(n,m,l,f0,f,A,b,x0,lamb0,nu0,delta=delta,s=s,rho=rho,numiter=numiter,eps=eps)
     
