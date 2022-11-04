@@ -398,7 +398,7 @@ function test_optdigits_Christoffel(data)
 
     for k=1:10
         d[k]=1
-        println(binomial(N+d[k],N))
+        #println(binomial(N+d[k],N))
     end
     
     Lambda=Vector{Function}(undef,10)
