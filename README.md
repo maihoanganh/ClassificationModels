@@ -25,7 +25,7 @@ Pkg> add https://github.com/maihoanganh/ClassificationModels.git
 The following examples briefly guide to use ClassificationModels:
 
 ## Classification
-Consider the following optimization polynomial problem:
+
 ```ruby
 
 N=2 # number of attributes
