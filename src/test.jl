@@ -707,7 +707,7 @@ function test_Parkinson_Christoffel(data)
 end
 
 
-function test_Parkinson_Christoffel_arb_basis()
+function test_Parkinson_Christoffel_arb_basis(data)
     df = CSV.read(data*"/ReplicatedAcousticFeatures-ParkinsonDatabase.csv", DataFrame)
     nr=240
     nc=46
@@ -795,7 +795,7 @@ function test_Parkinson_Christoffel_arb_basis()
 end
 
 
-function test_Parkinson_MLE()
+function test_Parkinson_MLE(data)
     df = CSV.read(data*"/ReplicatedAcousticFeatures-ParkinsonDatabase.csv", DataFrame)
     nr=240
     nc=46
