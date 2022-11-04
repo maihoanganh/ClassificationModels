@@ -580,12 +580,12 @@ function test_optdigits_MLE_arb_basis(data)
     Y_train=Vector{Matrix{Float64}}(undef,10)
 
     for k=1:10
-        t[k]=ceil(Int64,0.9*size(Y[k],1))
+        t[k]=ceil(Int64,0.7*size(Y[k],1))
         Y_train[k]=Y[k][1:t[k],:]
     end
     
     println("number of classes: ",10)
-    println("ratio of train set to test set: ",0.9)
+    println("ratio of train set to test set: ",0.7)
     Y_test=Vector{Matrix{Float64}}(undef,10)
 
     for k=1:10
