@@ -1,7 +1,7 @@
 # ClassificationModels
 ClassificationModels is a Julia package of solving classification problem: 
 
-Given a sequence of samples for each class ```K_j``` that is a subset of ```K```, determine which class ```K_j``` a given point in ```K``` belong to.
+Given a sequence of samples for each class ```K_j \subset K```, determine which class ```K_j``` a given point in ```K``` belongs to.
 
 To tackle this problem, we utilize:
 - Method based on Christoffel function.
