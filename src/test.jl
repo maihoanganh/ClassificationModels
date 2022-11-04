@@ -158,7 +158,9 @@ function test_test()
                                         delta=1,s=1,rho=1,numiter=1e3,
                                         eps=1e-3,tol_eig=1e-3,
                                         ball_cons=false,feas_start=false) # Maximum likelihood estimation
+        println()
         println("------------")
+        println()
     end
     
 
@@ -199,7 +201,9 @@ function test_test()
 
         # train a model
         Lambda[k]=christoffel_func(N,Y_train[k],t[k],d[k],eps=0.0)
+        println()
         println("------------")
+        println()
     end
 
     classifier2(y)=findmax([Lambda[k](y) for k=1:s])[2]
@@ -296,6 +300,8 @@ function test_Iris_MLE(data)
         R[k]=1
         x[k]=solve_opt(N,Y_train[k],t[k],R[k],d[k];delta=1,s=1,rho=1,
                              numiter=50,eps=-1e-3,tol_eig=1e-3,ball_cons=true,feas_start=false);
+        println()
+        println("------------")
         println()
     end
     end
@@ -402,6 +408,10 @@ function test_optdigits_Christoffel(data)
         println()
 
         Lambda[k]=christoffel_func(N,Y_train[k],t[k],d[k],eps=0.001);
+        
+        println()
+        println("------------")
+        println()
     end
     
     function classifier(y)
@@ -504,6 +514,10 @@ function test_optdigits_MLE(data)
         R[k]=r
         x[k]=solve_opt(N,Y_train[k],t[k],R[k],d[k];delta=1,s=1,rho=1,
                              numiter=1e4,eps=1e-2,tol_eig=1e-3,ball_cons=false,feas_start=false);
+            
+        println()
+        println("------------")
+        println()
     end
     end
     
@@ -614,6 +628,10 @@ function test_optdigits_MLE_arb_basis(data)
         R[k]=r
         x[k]=solve_opt_arb_basis(N,Y_train[k],t[k],R[k],d[k],rr;delta=1,s=1,rho=1,
                              numiter=1e1,eps=1e-2,tol_eig=1e-3);
+            
+        println()
+        println("------------")
+        println()
     end
     end
     
@@ -696,6 +714,8 @@ function test_Parkinson_Christoffel(data)
     R1=1
 
     Lambda1=christoffel_func(N,Y_train1,t1,d1);
+    println()
+    println("------------")
     println()
     println("Class 2")
     println()
@@ -789,6 +809,8 @@ function test_Parkinson_Christoffel_arb_basis(data)
 
     Lambda1=christoffel_func_arb_basis(N,Y_train1,t1,d1,r);
     println()
+    println("------------")
+    println()
     println("Class 2")
     println()
     d2=d
@@ -872,6 +894,8 @@ function test_Parkinson_MLE(data)
 
     x1=solve_opt(N,Y_train1,t1,R1,d1;delta=1,s=1,rho=1,
                              numiter=1e4,eps=-1e-3,tol_eig=1e-3,ball_cons=true,feas_start=false);
+    println()
+    println("------------")
     println()
     println("Class 2")
     println()
