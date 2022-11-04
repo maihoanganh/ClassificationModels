@@ -135,9 +135,15 @@ function test_test()
         Y_train[k]=Y[k][1:t[k],:]
         Y_test[k]=Y[k][(t[k]+1):end,:]
     end
+    
+    
+    println("number of classes: ",s)
+    println("ratio of train set to test set: ",ratio)
+    
+    
 
     d=Vector{Int64}(undef,s) # degrees of polynomial estimations
-    R=Vector{Float64}(undef,s) # radius of ball containing the samples
+    R=Vector{Float64}(undef,s) # radius of the ball centered at origin containing the samples
 
     x=Vector{Vector{Float64}}(undef,s) # coefficients of polynomial estimations
 
@@ -154,6 +160,7 @@ function test_test()
                                         ball_cons=false,feas_start=false) # Maximum likelihood estimation
         println("------------")
     end
+    
 
     eval_PDF=Vector{Function}(undef,s) # evaluate polynomial estimations
 
@@ -265,6 +272,8 @@ function test_Iris_MLE(data)
         Y_train[k]=Y[k][1:t[k],:]
     end
     
+    println("number of classes: ",3)
+    println("ratio of train set to test set: ",0.8)
     
     Y_test=Vector{Matrix{Float64}}(undef,3)
 
@@ -370,6 +379,9 @@ function test_optdigits_Christoffel(data)
         Y_train[k]=Y[k][1:t[k],:]
     end
     
+    println("number of classes: ",10)
+    println("ratio of train set to test set: ",0.9)
+    
     Y_test=Vector{Matrix{Float64}}(undef,10)
 
     for k=1:10
@@ -467,6 +479,9 @@ function test_optdigits_MLE(data)
         Y_train[k]=Y[k][1:t[k],:]
     end
     
+    println("number of classes: ",10)
+    println("ratio of train set to test set: ",0.9)
+    
     Y_test=Vector{Matrix{Float64}}(undef,10)
 
     for k=1:10
@@ -476,7 +491,7 @@ function test_optdigits_MLE(data)
     d=Vector{Int64}(undef,10)
     for k=1:10
         d[k]=1
-        println(binomial(N+d[k],N))
+        #println(binomial(N+d[k],N))
     end
     
     R=Vector{Float64}(undef,10)
@@ -519,7 +534,7 @@ function test_optdigits_MLE(data)
     println("Accuracy: ",accuracy)
 end
 
-function test_optdigits_MLE_arb_basis()
+function test_optdigits_MLE_arb_basis(data)
     df_train = readdlm(data*"/optdigits.tra", ',')
     df_test = readdlm(data*"/optdigits.tra", ',')
     df=[df_train;df_test]
@@ -565,9 +580,12 @@ function test_optdigits_MLE_arb_basis()
     Y_train=Vector{Matrix{Float64}}(undef,10)
 
     for k=1:10
-        t[k]=ceil(Int64,0.7*size(Y[k],1))
+        t[k]=ceil(Int64,0.9*size(Y[k],1))
         Y_train[k]=Y[k][1:t[k],:]
     end
+    
+    println("number of classes: ",10)
+    println("ratio of train set to test set: ",0.9)
     Y_test=Vector{Matrix{Float64}}(undef,10)
 
     for k=1:10
@@ -580,7 +598,7 @@ function test_optdigits_MLE_arb_basis()
     end
     
     largest_rr=binomial(2+N,N)-binomial(1+N,N)
-    println("largest_rr=",largest_rr)
+    #println("largest_rr=",largest_rr)
 
     #rr=largest_rr-N:largest_rr
     rr=1:N
@@ -668,6 +686,9 @@ function test_Parkinson_Christoffel(data)
     
     Y_test2=Y2[(t2+1):end,:]
     
+    println("number of classes: ",2)
+    println("ratio of train set to test set: ",0.9)
+    
     println("Class 1")
     println()
 
@@ -749,11 +770,14 @@ function test_Parkinson_Christoffel_arb_basis(data)
     
     Y_test2=Y2[(t2+1):end,:]
     
+    println("number of classes: ",2)
+    println("ratio of train set to test set: ",0.9)
+    
     d=1
     R=1
 
     largest_r=binomial(d+1+N,N)-binomial(d+N,N)
-    println("largest_r=",largest_r)
+    #println("largest_r=",largest_r)
 
     r=1035-N:1035
     
@@ -836,6 +860,9 @@ function test_Parkinson_MLE(data)
     
     Y_test1=Y1[(t1+1):end,:]
     Y_test2=Y2[(t2+1):end,:]
+    
+    println("number of classes: ",2)
+    println("ratio of train set to test set: ",0.9)
     
     println("Class 1")
     println()

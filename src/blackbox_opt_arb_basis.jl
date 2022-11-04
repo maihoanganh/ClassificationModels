@@ -1,11 +1,20 @@
 function model_arb_basis(N,Y,t,R,d,r)
     
+    println("number of attributes: ",N)
+    println("sample size for traint set: ",t)
+    println("degree of polynomial estimation: ",d)
+    println("radius of the ball centered at the origin containing the samples: ",R)
+    println("number of additional monomials: ",length(r))
         
     v=get_basis(N,d+1)
     lv=size(v,2)
     sd=binomial(d+N,N)
     v=v[:,union(1:sd,r.+sd)]
     lv=size(v,2)
+    
+    println("maximal size of matrix variables: ",lv)
+    
+    
     
     w=1
     v_plus_v=Matrix{UInt64}(undef,N,lv^2)
@@ -121,6 +130,8 @@ end
             
 
 function solve_opt_arb_basis(N,Y,t,R,d,r;delta=0.5,s=2,rho=0.5,numiter=1000,eps=1e-2,tol_eig=1e-3)
+    
+    println("****Method based on Maximum likelihood estimation with additional monomials****")
     
     n,m,l,f0,f,A,b=input_opt_arb_basis(N,Y,t,R,d,r,tol_eig=tol_eig)
     #x0=1e-5*ones(Float64,n)#2*rand(Float64,n).-1

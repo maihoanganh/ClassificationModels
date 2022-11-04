@@ -30,7 +30,14 @@ end
     
 function model(N,Y,t,R,d;ball_cons=true)
     
+    println("number of attributes: ",N)
+    println("sample size for traint set: ",t)
+    println("degree of polynomial estimation: ",d)
+    println("radius of the ball centered at the origin containing the samples: ",R)
+    
     eta,lmon_g,coe_g,supp_g,sd,sd_g=init(N,R,d,ball_cons=ball_cons)
+    
+    println("maximal size of matrix variables: ",sd)
         
     v=get_basis(N,2*d)
     s2d=size(v,2)
@@ -157,6 +164,8 @@ end
             
 
 function solve_opt(N,Y,t,R,d;delta=0.5,s=2,rho=0.5,numiter=1000,eps=1e-2,tol_eig=1e-3,ball_cons=true,feas_start=false)
+    
+    println("****Method based on Maximum likelihood estimation****")
     
     n,m,l,f0,f,A,b=input_opt(N,Y,t,R,d,tol_eig=tol_eig,ball_cons=ball_cons)
     #x0=1e-5*ones(Float64,n)#2*rand(Float64,n).-1

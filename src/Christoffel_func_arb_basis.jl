@@ -1,9 +1,22 @@
 function christoffel_func_arb_basis(N,Y,t,d,r;eps=0.0)
+    
+    println("number of attributes: ",N)
+    println("sample size for traint set: ",t)
+    println("degree of polynomial estimation: ",d)
+    println("number of additional monomials: ",length(r))
+    println("pertubation parameter for moment matrix: ",eps)
+    
+    
+    println("****Method based on Christoffel function with additional monomials****")
+    
+    
     v=get_basis(N,d+1)
     lv=size(v,2)
     sd=binomial(d+N,N)
     v=v[:,union(1:sd,r.+sd)]
     lv=size(v,2)
+    
+    println("size of moment matrix: ",lv)
     
     w=1
     v_plus_v=Matrix{UInt64}(undef,N,lv^2)
