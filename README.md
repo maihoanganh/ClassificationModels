@@ -169,11 +169,10 @@ ClassificationModels.test_bivariate_MLE2(data) # Figure 6
 
 
 ClassificationModels.test_Parkinson_Christoffel(data) # Section 5.1
-ClassificationModels.test_Parkinson_Christoffel_arb_basis(data) # Section 5.1
+ClassificationModels.test_Parkinson_Christoffel_arb_basis(data) # Section 5.1 (additional monomials)
 ClassificationModels.test_Parkinson_MLE(data) # Section 5.1
 
 ClassificationModels.test_optdigits_Christoffel(data) # Section 5.2
 ClassificationModels.test_optdigits_MLE(data) # Section 5.2
-ClassificationModels.test_optdigits_MLE_arb_basis(data) # Section 5.2
+ClassificationModels.test_optdigits_MLE_arb_basis(data) # Section 5.2 (additional monomials)
 ```
-# ClassificationModels
